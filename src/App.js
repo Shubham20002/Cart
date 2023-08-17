@@ -1,8 +1,10 @@
-
+import CartItem from "./CartItem";
 
 function App() {
   return (
-   <h1>hello shubham</h1>
+   
+   <CartItem/>
+   
   );
 }
 
