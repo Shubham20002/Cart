@@ -2,8 +2,6 @@ import React from 'react';
 import './CartItem.css';
 
 const CartItem =(props)=> {
- 
-
 //   increasequantity= () =>{
 // //form 1 of setstate
 //     // this.setState({
@@ -30,10 +28,6 @@ const CartItem =(props)=> {
 //         }
 //     })
 //   }
- 
-
-   
-   
     const { price, title, qty,img } = props.product;
     return (
       <div className="cart-item">
