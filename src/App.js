@@ -1,6 +1,10 @@
 import React from "react";
 import Cart from "./Cart";
 import Navbar from "./Navbar";
+import {db} from "./firebase";
+import { collection, addDoc } from "firebase/firestore"; 
+
+
 
 
 class App extends React.Component {
@@ -92,12 +96,28 @@ class App extends React.Component {
     return total;
 
   }
+   handeldata= async (e)=>{
+   e.preventDefault();
+   // Add a new document with a generated id.
+const docRef = await addDoc(collection(db, "Products"), {
+  
+    price: 999,
+    title: 'Mobile Phone',
+    qty: 0,
+    img: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9iaWxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    id: 1
+  
+});
+console.log("Document written with ID: ", docRef.id);
+
+  }
 
   render() {
     const { products } = this.state;
 
     return (
       <>
+      <button onClick={this.handeldata}>add data</button>
         <Navbar count={this.getcount()} />
         <Cart product={products}
           onincresequantity={this.handleincreseQuabtity}
